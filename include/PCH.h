@@ -8,7 +8,9 @@
 
 #include <jsoncons/json.hpp>
 
+#ifndef BQR_NG
 namespace WinAPI = SKSE::WinAPI;
+#endif
 namespace logs = SKSE::log;
 using namespace std::literals;
 

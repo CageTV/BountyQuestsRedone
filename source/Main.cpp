@@ -27,8 +27,8 @@ void InitLogging()
 void InitMessaging()
 {
     logs::trace("Initializing messaging listener.");
-    const auto interface = SKSE::GetMessagingInterface();
-    if (!interface->RegisterListener([](SKSE::MessagingInterface::Message* a_message) {
+    const auto messaging = SKSE::GetMessagingInterface();
+    if (!messaging->RegisterListener([](SKSE::MessagingInterface::Message* a_message) {
         switch (a_message->type) {
         case SKSE::MessagingInterface::kDataLoaded:
             Events::GetSingleton()->Register();

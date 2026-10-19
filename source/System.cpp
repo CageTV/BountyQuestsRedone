@@ -497,7 +497,11 @@ void System::RewardPlayer(const RE::BGSLocation* a_location, std::uint32_t a_lev
                         if (sAddItemtoInventory) {
                             std::string result = fmt::format("{} {}, {}", sAddItemtoInventory->GetString(), reward.form->GetName(), amount);
                             RE::PlaySound("ITMGoldUpSD");
+#ifdef BQR_NG
+                            RE::SendHUDMessage::ShowHUDMessage(result.c_str(), nullptr, true);
+#else
                             RE::DebugNotification(result.c_str(), nullptr, true);
+#endif
                         }
 
                         const auto data = RE::TESDataHandler::GetSingleton();
